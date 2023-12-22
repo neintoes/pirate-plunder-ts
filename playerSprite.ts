@@ -1,7 +1,8 @@
 class PlayerSprite extends sprites.ExtendableSprite {
     readonly turnSpeed: number = 0.2;
     private acceleration: number = 1.5;
-    private speed = 0;
+    private currentSpeed = 0;
+    private currentRotation = 0;
 
     constructor() {
         super(assets.image`ship`, SpriteKind.Player);
@@ -10,37 +11,35 @@ class PlayerSprite extends sprites.ExtendableSprite {
 
     private registerControls() {
         controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
-            let angle: number;
             for (let rotation = 0; rotation < 181; rotation += 180) {
-                angle = transformSprites.getRotation(this) + rotation;
-                spriteutils.degreesToRadians(angle);
-                new PlayerProjectile(this, angle);
+                let angle = transformSprites.getRotation(this) + rotation;
+                let angleInRadians = spriteutils.degreesToRadians(angle);
+                new PlayerProjectile(this, angleInRadians);
             }
         });
     }
 
     private turn() {
-        let rotation = transformSprites.getRotation(this);
         if (controller.left.isPressed()) {
-            rotation -= this.turnSpeed;
+            this.currentRotation -= this.turnSpeed;
         } else if (controller.right.isPressed()) {
-            rotation += this.turnSpeed;
+            this.currentRotation += this.turnSpeed;
         }
 
-        rotation *= 0.7
-        transformSprites.changeRotation(this, rotation * this.speed / 10);
+        this.currentRotation *= 0.7
+        transformSprites.changeRotation(this, this.currentRotation * this.currentSpeed / 10);
     }
 
     private move() {
         if (controller.up.isPressed()) {
-            this.speed += this.acceleration;
+            this.currentSpeed += this.acceleration;
         } else if (controller.down.isPressed()) {
-            this.speed -= this.acceleration;
+            this.currentSpeed -= this.acceleration;
         }
 
-        this.speed *= 0.98
+        this.currentSpeed *= 0.98
         let angle = spriteutils.degreesToRadians(transformSprites.getRotation(this) - 90);
-        spriteutils.setVelocityAtAngle(this, angle, this.speed);
+        spriteutils.setVelocityAtAngle(this, angle, this.currentSpeed);
     }
 
     public shipMotion(): void {

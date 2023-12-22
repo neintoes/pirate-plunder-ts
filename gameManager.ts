@@ -22,6 +22,7 @@ class GameManager {
         info.setScore(0);
         info.setLife(3);
         this.playerSprite = new PlayerSprite();
+        scene.cameraFollowSprite(this.playerSprite);
     }
 
     private setupLevel(level: tiles.TileMapData): void {
