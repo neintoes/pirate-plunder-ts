@@ -6,10 +6,13 @@ namespace SpriteKind {
 
 class GameManager {
     private playerSprite: PlayerSprite;
+    private fortManager: FortManager;
     // private overlapManager: OverlapManager;
 
     constructor() {
         this.initialisePlayer();
+        this.setupLevel(tilemap`level`);
+        this.fortManager = new FortManager(this.playerSprite);
         // this.overlapManager = new OverlapManager(this.playerSprite);
         this.onUpdates();
         this.onUpdateIntervals();
@@ -21,9 +24,14 @@ class GameManager {
         this.playerSprite = new PlayerSprite();
     }
 
+    private setupLevel(level: tiles.TileMapData): void {
+        tiles.setCurrentTilemap(level);
+        
+    }
+
     private onUpdates(): void {
         game.onUpdate(function (): void {
-            return
+            this.playerSprite.shipMotion();
         })
     }
 

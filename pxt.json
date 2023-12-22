@@ -2,7 +2,11 @@
     "name": "pirate game conversion",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "Tiles Advanced": "github:Tomhausen/The-Code-Zone-Tiles-Advanced#v0.4.3",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
+        "pxt-arcade-image-transform": "github:robo-technical-group/pxt-arcade-image-transform#v1.0.9"
     },
     "files": [
         "main.blocks",
@@ -14,7 +18,9 @@
         "images.g.jres",
         "images.g.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "forts.ts",
+        "projectiles.ts"
     ],
     "testFiles": [
         "test.ts"
