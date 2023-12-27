@@ -19,6 +19,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "fort"
     },
+    "image6": {
+        "data": "hwQQABAAAACwuwu7u7u7C+vuu1VV6867S+S7VFXr7rtLRLtFVevuC0tEu1VU6+4LS0S7RVXr7gtLRLtbVevuC0tEzbxF6+4LS0TNvFXr7gtLRLtbVevuC0tEu1RU6+4LS0S7VVXr7gtLRLtFVevuC0vku1RV6+67S+67RVXrzruwuwu7u7u7Cw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "treasure"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

@@ -1,20 +1,18 @@
 class Fort extends sprites.ExtendableSprite {
     private fireRate: number = 100;
+    public healthbar: StatusBarSprite;
 
     constructor(location: tiles.Location) {
         super(assets.image`fort`, SpriteKind.Enemy);
         tiles.placeOnTile(this, location);
+        this.healthbar = statusbars.create(20, 4, StatusBarKind.EnemyHealth);
+        this.healthbar.attachToSprite(this);
     }
 
     public fire(target: Sprite): void {
         if (randint(0, this.fireRate) == 0) {
-            // let proj: Sprite;
-            // let angle: number;
-            // if (randint(1, 100) == 1 && spriteutils.distanceBetween(fort, ship) < 80) {
-            //     proj = make_projectile(fort, SpriteKind.enemy_projectile)
-            //     angle = spriteutils.angleFrom(fort, ship)
-            //     spriteutils.setVelocityAtAngle(proj, angle, 100)
-            // }
+            let angle = spriteutils.angleFrom(this, target);
+            new EnemyProjectile(this, angle);
         }
     }
 }
@@ -23,6 +21,7 @@ class FortManager {
     playerSprite: PlayerSprite;
 
     constructor(playerSprite: PlayerSprite) {
+        this.playerSprite = playerSprite;
         for(let i = 0; i < 10; i++) {
             this.spawnFort();
         }

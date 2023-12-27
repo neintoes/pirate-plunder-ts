@@ -88,6 +88,25 @@ f f f f f f f f f f f f f f f f
 . f b b b c b f f b b b b b f . 
 . f f f f f f f f f f f f f f . 
 `;
+            case "image6":
+            case "treasure":return img`
+. b b b b b b b b b b b b b b . 
+b e 4 4 4 4 4 4 4 4 4 4 4 4 4 b 
+b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
+b e e 4 4 4 4 4 4 4 4 4 4 e e b 
+b b b b b b b d d b b b b b b b 
+. b b b b b b c c b b b b b b . 
+b 5 4 5 5 5 b c c b 4 5 5 4 5 b 
+b 5 5 4 5 4 5 b b 5 5 5 4 5 4 b 
+b 5 5 5 4 5 5 5 5 5 4 5 5 5 5 b 
+b 5 5 5 5 5 5 4 5 5 5 5 5 5 5 b 
+b b b b b b b b b b b b b b b b 
+b e e e e e e e e e e e e e e b 
+b e e e e e e e e e e e e e e b 
+b c e e e e e e e e e e e e c b 
+b b b b b b b b b b b b b b b b 
+. b b . . . . . . . . . . b b . 
+`;
         }
         return null;
     })

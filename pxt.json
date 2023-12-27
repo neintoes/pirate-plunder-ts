@@ -20,7 +20,9 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "forts.ts",
-        "projectiles.ts"
+        "projectiles.ts",
+        "overlapManager.ts",
+        "Treasure.ts"
     ],
     "testFiles": [
         "test.ts"
