@@ -23,11 +23,11 @@ class FortManager {
     constructor(playerSprite: PlayerSprite) {
         this.playerSprite = playerSprite;
         for(let i = 0; i < 10; i++) {
-            this.spawnFort();
+            this.fortSpawning();
         }
     }
 
-    public spawnFort(): void {
+    public fortSpawning(): void {
         if (sprites.allOfKind(SpriteKind.Enemy).length < 10) {
             let tile = tilesAdvanced.getAllWallTiles()._pickRandom();
             new Fort(tile);

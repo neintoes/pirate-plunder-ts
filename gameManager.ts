@@ -8,14 +8,21 @@ class GameManager {
     private playerSprite: PlayerSprite;
     private fortManager: FortManager;
     private overlapManager: OverlapManager;
+    // GH1
+    private treasureCollected: number = 0;
+    private treasureSpawner: TreasureSpawner;
+    // end GH1
 
     constructor() {
         this.initialisePlayer();
         this.setupLevel(tilemap`level`);
         this.fortManager = new FortManager(this.playerSprite);
-        this.overlapManager = new OverlapManager();
+        this.overlapManager = new OverlapManager(this);
         this.onUpdates();
         this.onUpdateIntervals();
+        // GH1
+        this.treasureSpawner =  new TreasureSpawner();
+        // end GH1
     }
 
     private initialisePlayer(): void {
@@ -38,6 +45,9 @@ class GameManager {
     }
 
     private onUpdateIntervals(): void {
-        return
+        game.onUpdateInterval(2000, () => {
+            this.fortManager.fortSpawning();
+            this.treasureSpawner.treasureSpawning();
+        });
     }
 }

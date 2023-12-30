@@ -1,5 +1,8 @@
 class OverlapManager {
-    constructor() {
+    gameManager: GameManager;
+
+    constructor(gameManager: GameManager) {
+        this.gameManager = gameManager;
         this.registerOverlaps();
     }
 
@@ -9,7 +12,6 @@ class OverlapManager {
             fort.healthbar.value -= 10;
             projectile.destroy()
             if (fort.healthbar.value < 1) {
-                new Treasure(fort.tilemapLocation());
                 fort.destroy();
             }
         })
@@ -20,9 +22,27 @@ class OverlapManager {
             projectile.destroy();
         });
 
-        // fix double spawn
-        sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Enemy, (enemy: Sprite, other_enemy: Sprite) => {
+        // fix double spawning
+        sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Enemy, (enemy: Fort, otherEnemy: Fort) => {
             sprites.allOfKind(SpriteKind.Enemy).pop().destroy();
         });
+        // GH1
+        // double spawning fixes cont.
+        sprites.onOverlap(SpriteKind.Treasure, SpriteKind.Treasure, (treasure: Sprite, otherTreasure: Sprite) => {
+            sprites.allOfKind(SpriteKind.Treasure).pop().destroy();
+        });
+        sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Treasure, (enemy: Sprite, treasure: Sprite) => {
+            sprites.allOfKind(SpriteKind.Treasure).pop().destroy();
+        });
+        // end GH1
+
+        // GH1
+        // treasure pickup
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.Hitbox, (playerSprite: PlayerSprite, hitbox: Hitbox) => {
+            info.changeScoreBy(hitbox.parent.value);
+            hitbox.parent.destroy();
+            hitbox.destroy();
+        });
+        // end GH1
     }
 }
