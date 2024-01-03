@@ -20,6 +20,10 @@ class OverlapManager {
         sprites.onOverlap(SpriteKind.Player, SpriteKind.EnemyProjectile, (playerSprite: PlayerSprite, projectile: EnemyProjectile) => {
             info.changeLifeBy(-1);
             projectile.destroy();
+
+            // GH1
+            this.gameManager.treasureOnboard = this.gameManager.treasureOnboard / 2;
+            // end GH1
         });
 
         // fix double spawning
