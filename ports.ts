@@ -1,4 +1,3 @@
-// condense with treasure?
 // GH1
 class Port extends sprites.ExtendableSprite {
     hitbox: Hitbox;
