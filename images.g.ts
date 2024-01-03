@@ -107,6 +107,25 @@ b c e e e e e e e e e e e e c b
 b b b b b b b b b b b b b b b b 
 . b b . . . . . . . . . . b b . 
 `;
+            case "image5":
+            case "port":return img`
+d d d d d d d d d d d d d d d d 
+d 7 7 7 7 7 a a a 7 7 7 7 7 7 d 
+d 7 7 7 7 a a a a a 7 7 7 7 7 d 
+d 7 7 7 a 3 3 3 3 3 a 7 7 7 7 d 
+d 7 7 7 7 3 1 3 1 3 7 7 7 7 7 d 
+d 7 7 7 7 3 3 3 3 3 7 7 7 7 7 d 
+d 7 7 7 7 3 3 e 3 3 7 7 7 7 7 d 
+d 7 7 7 7 7 7 7 7 7 7 7 7 7 7 d 
+d 7 7 7 7 7 7 7 7 7 7 a a a 7 d 
+d 7 7 7 7 7 7 7 7 7 a a a a a d 
+d 7 7 a a a 7 7 7 a 3 3 3 3 3 a 
+d 7 a a a a a 7 7 7 3 1 3 1 3 d 
+d a 3 3 3 3 3 a 7 7 3 3 3 3 3 d 
+d 7 3 1 3 1 3 7 7 7 3 3 e 3 3 d 
+d 7 3 3 3 3 3 7 7 7 7 7 7 7 7 d 
+d d 3 3 e 3 3 d d d d d d d d d 
+`;
         }
         return null;
     })

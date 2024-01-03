@@ -23,26 +23,41 @@ class OverlapManager {
         });
 
         // fix double spawning
+        // remove double spawning fixes as it's cumbersome?
         sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Enemy, (enemy: Fort, otherEnemy: Fort) => {
             sprites.allOfKind(SpriteKind.Enemy).pop().destroy();
         });
-        // GH1
-        // double spawning fixes cont.
         sprites.onOverlap(SpriteKind.Treasure, SpriteKind.Treasure, (treasure: Sprite, otherTreasure: Sprite) => {
             sprites.allOfKind(SpriteKind.Treasure).pop().destroy();
         });
         sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Treasure, (enemy: Sprite, treasure: Sprite) => {
             sprites.allOfKind(SpriteKind.Treasure).pop().destroy();
         });
-        // end GH1
+        sprites.onOverlap(SpriteKind.Treasure, SpriteKind.Treasure, (treasure: Sprite, otherTreasure: Sprite) => {
+            sprites.allOfKind(SpriteKind.Treasure).pop().destroy();
+        });
+        sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Treasure, (enemy: Sprite, treasure: Sprite) => {
+            sprites.allOfKind(SpriteKind.Treasure).pop().destroy();
+        });
 
-        // GH1
         // treasure pickup
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Hitbox, (playerSprite: PlayerSprite, hitbox: Hitbox) => {
-            info.changeScoreBy(hitbox.parent.value);
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.TreasureHitbox, (playerSprite: PlayerSprite, hitbox: Hitbox) => {
+            // COMMENTED OUT FOR GH1:
+            //info.changeScoreBy(hitbox.parent.value);
+            // GH1
+            this.gameManager.treasureOnboard += hitbox.parent.value;
+            this.gameManager.treasureCounter.updateText();
+            // end GH1
             hitbox.parent.destroy();
             hitbox.destroy();
         });
+
+        // GH1
+        sprites.onOverlap(SpriteKind.Player, SpriteKind.PortHitbox, (playerSprite: PlayerSprite, hitbox: Hitbox) => {
+            info.changeScoreBy(this.gameManager.treasureOnboard);
+            this.gameManager.treasureOnboard = 0;
+            this.gameManager.treasureCounter.updateText();
+        })
         // end GH1
     }
 }

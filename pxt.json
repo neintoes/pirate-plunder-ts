@@ -6,7 +6,8 @@
         "Tiles Advanced": "github:Tomhausen/The-Code-Zone-Tiles-Advanced#v0.4.3",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
-        "pxt-arcade-image-transform": "github:robo-technical-group/pxt-arcade-image-transform#v1.0.9"
+        "pxt-arcade-image-transform": "github:robo-technical-group/pxt-arcade-image-transform#v1.0.9",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
     },
     "files": [
         "main.blocks",
@@ -22,7 +23,10 @@
         "forts.ts",
         "projectiles.ts",
         "overlapManager.ts",
-        "Treasure.ts"
+        "treasure.ts",
+        "hitbox.ts",
+        "UI.ts",
+        "ports.ts"
     ],
     "testFiles": [
         "test.ts"
