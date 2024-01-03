@@ -10,7 +10,7 @@ class Fort extends sprites.ExtendableSprite {
     }
 
     public fire(target: Sprite): void {
-        if (randint(0, this.fireRate) == 0) {
+        if (randint(0, this.fireRate) == 0 && spriteutils.distanceBetween(this, sprites.allOfKind(SpriteKind.Player)[0]) < 80) {
             let angle = spriteutils.angleFrom(this, target);
             new EnemyProjectile(this, angle);
         }
