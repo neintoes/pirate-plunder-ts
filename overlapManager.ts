@@ -54,6 +54,7 @@ class OverlapManager {
 
         // GH1
         sprites.onOverlap(SpriteKind.Player, SpriteKind.PortHitbox, (playerSprite: PlayerSprite, hitbox: Hitbox) => {
+            console.log("hit")
             info.changeScoreBy(this.gameManager.treasureOnboard);
             this.gameManager.treasureOnboard = 0;
             this.gameManager.treasureCounter.updateText();

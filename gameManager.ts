@@ -26,11 +26,11 @@ class GameManager {
         this.fortManager = new FortManager(this.playerSprite);
         this.treasureSpawner = new TreasureSpawner(this.playerSprite);
         this.overlapManager = new OverlapManager(this);
-        this.onUpdates();
-        this.onUpdateIntervals();
         // GH1
         this.treasureCounter = new TreasureCounter(this);
         // end GH1
+        this.onUpdates();
+        this.onUpdateIntervals();
     }
 
     private initialisePlayer(): void {
@@ -47,15 +47,13 @@ class GameManager {
             let tile = tilesAdvanced.getAllWallTiles()._pickRandom();
             new Port(tile);
         }
+        // end GH1
     }
 
     private onUpdates(): void {
         game.onUpdate(function (): void {
             this.playerSprite.shipMotion();
             this.fortManager.fortFire();
-            sprites.allOfKind(SpriteKind.Treasure).forEach((treasure: Treasure) => {
-                console.log(treasure._hitbox.width)
-            });
             // GH1
             this.treasureCounter.updateText();
             // end GH1
@@ -68,15 +66,5 @@ class GameManager {
             this.treasureSpawner.treasureSpawning();
         });
     }
-
-    // lag issue?
-    // private onDestroyedEvents(): void {
-    //     sprites.onDestroyed(SpriteKind.Treasure, (treasure: Treasure) => {
-    //         treasure.hitbox.destroy();
-    //     })
-    //     sprites.onDestroyed(SpriteKind.Port, (port: Port) => {
-    //         port.hitbox.destroy();
-    //     })
-    // }
 }
 

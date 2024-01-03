@@ -10,7 +10,7 @@ class Treasure extends sprites.ExtendableSprite implements iCollectable {
         super(assets.image`treasure`, SpriteKind.Treasure);
         tiles.placeOnTile(this, spawnPoint);
         this.value = randint(500, 2000);
-        //this.hitbox = new Hitbox(this, 20, SpriteKind.TreasureHitbox);
+        this.hitbox = new Hitbox(this, 20, SpriteKind.TreasureHitbox);
     }
 }
 

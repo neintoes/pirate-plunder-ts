@@ -11,17 +11,3 @@ class Hitbox extends sprites.ExtendableSprite {
         this.setFlag(SpriteFlag.Invisible, true);
     }
 }
-
-// class TreasureHitbox extends Hitbox {
-//     constructor(parent: Treasure) {
-//         super(20, SpriteKind.TreasureHitbox, parent);
-//     }
-// }
-
-// // GH1
-// class PortHitbox extends Hitbox {
-//     constructor(parent: Port) {
-//         super(20, SpriteKind.PortHitbox, parent)
-//     }
-// }
-// end GH1

@@ -5,8 +5,8 @@ class Port extends sprites.ExtendableSprite {
 
     constructor(location: tiles.Location) {
         super(assets.image`port`, SpriteKind.Port)
-        //this.hitbox = new Hitbox(this, 20, SpriteKind.PortHitbox);
         tiles.placeOnTile(this, location);
+        this.hitbox = new Hitbox(this, 20, SpriteKind.PortHitbox);
     }
 }
 // end GH1
