@@ -23,7 +23,6 @@ class OverlapManager {
         });
 
         // fix double spawning
-        // remove double spawning fixes as it's cumbersome?
         sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Enemy, (enemy: Fort, otherEnemy: Fort) => {
             sprites.allOfKind(SpriteKind.Enemy).pop().destroy();
         });
@@ -58,7 +57,7 @@ class OverlapManager {
             info.changeScoreBy(this.gameManager.treasureOnboard);
             this.gameManager.treasureOnboard = 0;
             this.gameManager.treasureCounter.updateText();
-        })
+        });
         // end GH1
     }
 }
