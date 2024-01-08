@@ -10,13 +10,12 @@ namespace SpriteKind {
 }
 
 class GameManager {
-    private playerSprite: PlayerSprite;
+    public playerSprite: PlayerSprite;
     private fortManager: FortManager;
     private overlapManager: OverlapManager;
     private treasureCollected: number = 0;
     private treasureSpawner: TreasureSpawner;
     // GH1
-    public treasureOnboard: number = 0;
     public treasureCounter: TreasureCounter;
     // end GH1
 

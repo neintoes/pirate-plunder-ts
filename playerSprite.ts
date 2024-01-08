@@ -3,6 +3,7 @@ class PlayerSprite extends sprites.ExtendableSprite {
     private acceleration: number = 1.5;
     private currentSpeed = 0;
     private currentRotation = 0;
+    public treasureOnboard: number = 0;
 
     constructor() {
         super(assets.image`ship`, SpriteKind.Player);
