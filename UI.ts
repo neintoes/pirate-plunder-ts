@@ -29,10 +29,10 @@ class MinimapDisplay {
         this.minimapSprite.z = 100;
         this.minimapSprite.setFlag(SpriteFlag.RelativeToCamera, true);
         this.minimapSprite.setFlag(SpriteFlag.Invisible, true);
-        this.registerDisplayToggleControl();
+        this.registerDisplayToggle();
     }
 
-    private registerDisplayToggleControl(): void {
+    private registerDisplayToggle(): void {
         controller.B.onEvent(ControllerButtonEvent.Pressed, () => {
             if (this.minimapOpen) {
                 this.minimapSprite.setFlag(SpriteFlag.Invisible, true);
