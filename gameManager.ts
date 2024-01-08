@@ -11,13 +11,16 @@ namespace SpriteKind {
 
 class GameManager {
     public playerSprite: PlayerSprite;
+    // GH1
+    public treasureCounter: TreasureCounter;
+    // end GH1
     private fortManager: FortManager;
     private overlapManager: OverlapManager;
     private treasureCollected: number = 0;
     private treasureSpawner: TreasureSpawner;
-    // GH1
-    public treasureCounter: TreasureCounter;
-    // end GH1
+    // GH2
+    private minimapDisplay: MinimapDisplay;
+    // end GH2
 
     constructor() {
         this.initialisePlayer();
@@ -28,6 +31,9 @@ class GameManager {
         // GH1
         this.treasureCounter = new TreasureCounter(this);
         // end GH1
+        // GH2
+        this.minimapDisplay = new MinimapDisplay();
+        // end GH2
         this.onUpdates();
         this.onUpdateIntervals();
     }
@@ -64,6 +70,11 @@ class GameManager {
             this.fortManager.fortSpawning();
             this.treasureSpawner.treasureSpawning();
         });
+        // GH2
+        game.onUpdateInterval(100, () => {
+            this.minimapDisplay.update();
+        });
+        // end GH2
     }
 }
 

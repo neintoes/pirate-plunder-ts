@@ -7,7 +7,8 @@
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
         "pxt-arcade-image-transform": "github:robo-technical-group/pxt-arcade-image-transform#v1.0.9",
-        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1"
     },
     "files": [
         "main.blocks",
