@@ -21,13 +21,11 @@ class TreasureCounter extends TextSprite {
 class MinimapDisplay {
     public minimapOpen: boolean = false;
     private minimapObject: minimap.Minimap;
-    private minimapImage: Image;
     private minimapSprite: Sprite;
 
     constructor() {
         this.minimapObject = minimap.minimap(MinimapScale.Eighth, 2, 15);
-        this.minimapImage = minimap.getImage(this.minimapObject);
-        this.minimapSprite = sprites.create(this.minimapImage);
+        this.minimapSprite = sprites.create(minimap.getImage(this.minimapObject));
         this.minimapSprite.z = 100;
         this.minimapSprite.setFlag(SpriteFlag.RelativeToCamera, true);
         this.minimapSprite.setFlag(SpriteFlag.Invisible, true);
