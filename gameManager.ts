@@ -65,7 +65,7 @@ class GameManager {
         game.onUpdate(function (): void {
             this.playerSprite.shipMotion();
             // GH3
-            if (this.whirlpool) {
+            if (!spriteutils.isDestroyed(this.whirlpool)) {
                 this.whirlpool.pullIfInProximity(this.playerSprite);
                 transformSprites.changeRotation(this.whirlpool, 1);
             }
