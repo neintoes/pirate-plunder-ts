@@ -65,8 +65,11 @@ class GameManager {
         game.onUpdate(function (): void {
             this.playerSprite.shipMotion();
             // GH3
-            if (this.whirlpool && spriteutils.distanceBetween(this.playerSprite, this.whirlpool) < 100) {
-                this.whirlpool.affectShipVelocity(this.playerSprite);
+            if (this.whirlpool) {
+                if (spriteutils.distanceBetween(this.playerSprite, this.whirlpool) < 100) {
+                    this.whirlpool.affectShipVelocity(this.playerSprite);
+                }
+                transformSprites.changeRotation(this.whirlpool, 1);
             }
             // end GH3
             this.fortManager.fortFire();
