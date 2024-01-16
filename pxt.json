@@ -27,7 +27,8 @@
         "treasure.ts",
         "hitbox.ts",
         "UI.ts",
-        "ports.ts"
+        "ports.ts",
+        "obstacles.ts"
     ],
     "testFiles": [
         "test.ts"

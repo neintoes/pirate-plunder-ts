@@ -7,6 +7,9 @@ namespace SpriteKind {
     export const Port = SpriteKind.create();
     export const PortHitbox = SpriteKind.create();
     // end GH1
+    // GH3
+    export const Pool = SpriteKind.create();
+    // end GH3
 }
 
 class GameManager {
@@ -21,6 +24,9 @@ class GameManager {
     // GH2
     private minimapDisplay: MinimapDisplay;
     // end GH2
+    // GH3
+    private whirlpool: WhirlPool;
+    // end GH3
 
     constructor() {
         this.initialisePlayer();
@@ -58,6 +64,11 @@ class GameManager {
     private onUpdates(): void {
         game.onUpdate(function (): void {
             this.playerSprite.shipMotion();
+            // GH3
+            if (this.whirlpool && spriteutils.distanceBetween(this.playerSprite, this.whirlpool) < 100) {
+                this.whirlpool.affectShipVelocity(this.playerSprite);
+            }
+            // end GH3
             this.fortManager.fortFire();
             // GH1
             this.treasureCounter.updateText();
@@ -75,6 +86,11 @@ class GameManager {
             this.minimapDisplay.update();
         });
         // end GH2
+        // GH3
+        game.onUpdateInterval(20000, () => {
+            this.whirlpool = new WhirlPool();
+        });
+        // GH3
     }
 }
 
