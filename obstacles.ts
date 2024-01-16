@@ -7,9 +7,11 @@ class WhirlPool extends sprites.ExtendableSprite {
         this.z = -1
     }
 
-    public affectShipVelocity(ship: PlayerSprite): void {
-        ship.vx += Math.sign(this.x - ship.x) * 15
-        ship.vy += Math.sign(this.y - ship.y) * 15
+    public pullIfInProximity(ship: PlayerSprite): void {
+        if (spriteutils.distanceBetween(this, ship) < 100) {
+            ship.vx += Math.sign(this.x - ship.x) * 15;
+            ship.vy += Math.sign(this.y - ship.y) * 15;
+        }
     }
 }
 // end GH3

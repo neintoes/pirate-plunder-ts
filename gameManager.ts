@@ -66,9 +66,7 @@ class GameManager {
             this.playerSprite.shipMotion();
             // GH3
             if (this.whirlpool) {
-                if (spriteutils.distanceBetween(this.playerSprite, this.whirlpool) < 100) {
-                    this.whirlpool.affectShipVelocity(this.playerSprite);
-                }
+                this.whirlpool.pullIfInProximity(this.playerSprite);
                 transformSprites.changeRotation(this.whirlpool, 1);
             }
             // end GH3
